@@ -8,7 +8,7 @@
 		"type": "git",
 		"url": "git+https://github.com/andasan/svelte-attach-motion.git"
 	},
-	"homepage": "https://github.com/andasan/svelte-attach-motion#readme",
+	"homepage": "https://ds2l9pktw39ce.cloudfront.net",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && npm run prepack",

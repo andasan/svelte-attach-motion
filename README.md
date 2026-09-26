@@ -2,6 +2,8 @@
 
 [Motion](https://motion.dev) animations for Svelte 5, as [attachments](https://svelte.dev/docs/svelte/@attach).
 
+**Docs & demo:** [ds2l9pktw39ce.cloudfront.net](https://ds2l9pktw39ce.cloudfront.net)
+
 No wrapper components and no `<motion.div>`. Add animation to the elements you already have, with automatic cleanup and `prefers-reduced-motion` support built in.
 
 ```svelte

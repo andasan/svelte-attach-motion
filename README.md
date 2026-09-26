@@ -16,8 +16,6 @@ No wrapper components and no `<motion.div>`. Add animation to the elements you a
 <button {@attach press({ scale: 0.95 })} {@attach hover({ y: -2 })}>Save</button>
 ```
 
-
-
 ## Install
 
 ```sh
@@ -28,7 +26,6 @@ Requires Svelte 5.29+ (attachments) and Motion 13. Motion is a peer dependency, 
 
 ## API
 
-
 | Attachment                           | What it does                                                                    |
 | ------------------------------------ | ------------------------------------------------------------------------------- |
 | `animate(keyframes, options?)`       | Animates on mount, and again whenever reactive values in `keyframes` change.    |
@@ -37,7 +34,6 @@ Requires Svelte 5.29+ (attachments) and Motion 13. Motion is a peer dependency, 
 | `scrollProgress(callback, options?)` | Calls `callback(progress)` with 0–1 as the element (or page) scrolls.           |
 | `hover(keyframes, options?)`         | Animates while a mouse hovers the element, then returns to rest. Ignores touch. |
 | `press(keyframes, options?)`         | Animates while pressed, by pointer or keyboard (Enter), then returns to rest.   |
-
 
 All animating attachments accept:
 
@@ -60,8 +56,6 @@ Attachments re-run when the state they read changes, so this animates the knob e
 </button>
 ```
 
-
-
 ### Reduced motion
 
 By default every attachment respects the user's `prefers-reduced-motion` setting:
@@ -80,8 +74,6 @@ If you also import from `motion` directly, alias one side:
 import { animate as motionAnimate } from 'motion';
 import { animate } from 'svelte-attach-motion';
 ```
-
-
 
 ## Why attachments?
 
@@ -108,4 +100,3 @@ src/lib/                    the published package
 src/routes/                 docs site and the "Spot the phish" demo
 e2e/                        Playwright tests (animations, gestures, reduced motion, demo)
 ```
-

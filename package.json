@@ -1,6 +1,6 @@
 {
 	"name": "svelte-attach-motion",
-	"version": "0.0.2",
+	"version": "0.1.0",
 	"description": "Motion animations for Svelte 5 as attachments: animate, inView, scroll, hover and press, with reduced-motion support built in.",
 	"license": "MIT",
 	"author": "andasan",

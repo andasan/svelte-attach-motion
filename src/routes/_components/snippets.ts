@@ -1,7 +1,7 @@
 /** Source shown next to each live example on the docs page. */
 export const code = {
 	install: `npm install svelte-attach-motion motion`,
-	animate: `<div {@attach animate(
+	animate: `<div data-reveal {@attach animate(
   { opacity: [0, 1], y: [24, 0] },
   { transition: { duration: 0.5 } }
 )} />`,
@@ -15,7 +15,7 @@ export const code = {
     { transition: { type: 'spring', bounce: 0.35 } }
   )} />
 </button>`,
-	inView: `<li {@attach inView(
+	inView: `<li data-reveal {@attach inView(
   { opacity: 1, x: 0 },
   { initial: { opacity: 0, x: -32 }, once: false, amount: 0.6 }
 )}>…</li>`,
@@ -28,5 +28,12 @@ export const code = {
 )}>…</article>`,
 	press: `<button {@attach press({ scale: 0.92 })}>Save draft</button>`,
 	reduced: `<div {@attach animate(keyframes, { reducedMotion: 'user' })} />
-<!-- 'user' (default) | 'always' | 'never' -->`
+<!-- 'user' (default) | 'always' | 'never' -->`,
+	reveal: `<!-- +layout.svelte -->
+<script>
+  import 'svelte-attach-motion/reveal.css';
+</script>
+
+<!-- any entrance animation on a server-rendered page -->
+<h1 data-reveal {@attach animate({ opacity: [0, 1], y: [12, 0] })}>…</h1>`
 };

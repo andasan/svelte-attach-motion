@@ -2,6 +2,7 @@
 	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
 	import { scrollProgress } from '$lib/index.js';
+	import '$lib/reveal.css';
 	import '../app.css';
 
 	let { children } = $props();

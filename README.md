@@ -68,6 +68,35 @@ By default every attachment respects the user's `prefers-reduced-motion` setting
 
 Use `reducedMotion: 'never'` only for motion that is essential to understanding the UI.
 
+### No flash on server-rendered pages
+
+Attachments run once JavaScript has loaded. On a server-rendered or prerendered page, an entrance
+animation would otherwise show the element, hide it when the attachment mounts, then animate it in.
+
+Import the stylesheet once and add `data-reveal` to entrance animations:
+
+```svelte
+<!-- +layout.svelte -->
+<script>
+	import 'svelte-attach-motion/reveal.css';
+</script>
+```
+
+```svelte
+<h1 data-reveal {@attach animate({ opacity: [0, 1], y: [12, 0] })}>…</h1>
+
+<section data-reveal {@attach inView({ opacity: 1, y: 0 }, { initial: { opacity: 0, y: 24 } })}>
+	…
+</section>
+```
+
+- Elements are hidden from the first paint only when the browser can run scripts
+  (`@media (scripting: enabled)`), so content stays visible without JavaScript.
+- `animate` and `inView` take over when they mount and remove the attribute after their first frame.
+  On `inView`, `initial` defaults to `{ opacity: 0 }` for `data-reveal` elements.
+- If the JavaScript never loads, a CSS fail-safe shows the element after 3 seconds.
+- Only use it on entrance animations that end at `opacity: 1`.
+
 ### Name clashes with Motion
 
 If you also import from `motion` directly, alias one side:

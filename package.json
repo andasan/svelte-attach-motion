@@ -40,7 +40,8 @@
 		".": {
 			"types": "./dist/index.d.ts",
 			"svelte": "./dist/index.js"
-		}
+		},
+		"./reveal.css": "./dist/reveal.css"
 	},
 	"peerDependencies": {
 		"motion": "^13.0.0",

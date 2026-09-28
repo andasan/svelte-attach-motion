@@ -18,7 +18,11 @@
 </svelte:head>
 
 <section class="hero">
-	<h1 {@attach animate({ opacity: [0, 1], y: [12, 0] }, { transition: { duration: 0.5 } })}>
+	<h1
+		data-testid="hero-title"
+		data-reveal
+		{@attach animate({ opacity: [0, 1], y: [12, 0] }, { transition: { duration: 0.5 } })}
+	>
 		Motion for Svelte&nbsp;5, <span>one attachment at a time.</span>
 	</h1>
 	<p class="lede">
@@ -117,6 +121,7 @@
 	<ul class="list">
 		{#each ['Inbox', 'Drafts', 'Shared with me', 'Archive', 'Trash'] as item, i (item)}
 			<li
+				data-reveal
 				{@attach inView(
 					{ opacity: 1, x: 0 },
 					{
@@ -166,6 +171,17 @@
 		{/each}
 	</fieldset>
 	<CodeBlock code={code.reduced} />
+</section>
+
+<section class="reduced" aria-labelledby="reveal-title">
+	<h2 id="reveal-title">No flash on server-rendered pages</h2>
+	<p>
+		Attachments only run once JavaScript loads, so a prerendered element would first appear, then
+		hide, then animate in. Import <code>reveal.css</code> once and add <code>data-reveal</code> to entrance
+		animations: the element starts hidden only when the browser can run scripts, the attachment takes
+		over when it mounts, and a CSS fail-safe shows it anyway if the JavaScript never arrives.
+	</p>
+	<CodeBlock code={code.reveal} />
 </section>
 
 <style>

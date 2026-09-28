@@ -1,0 +1,22 @@
+/*
+ * Prevents server-rendered content from flashing before its entrance animation.
+ *
+ * Add `data-reveal` to an element that animates in with `animate` or `inView`. Browsers that run
+ * JavaScript hide it from the first paint; the attachment then takes over and removes the
+ * attribute. Without JavaScript (or in browsers without `scripting` support) nothing is hidden.
+ *
+ * If the JavaScript fails to load, the fail-safe animation reveals the element after 3 seconds so
+ * content is never lost.
+ */
+@media (scripting: enabled) {
+	[data-reveal] {
+		opacity: 0;
+		animation: svelte-attach-motion-reveal-failsafe 0s 3s forwards;
+	}
+}
+
+@keyframes svelte-attach-motion-reveal-failsafe {
+	to {
+		opacity: 1;
+	}
+}

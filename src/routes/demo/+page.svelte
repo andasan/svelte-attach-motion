@@ -47,6 +47,7 @@
 			class="email"
 			aria-labelledby="subject"
 			data-testid="email"
+			data-reveal
 			{@attach animate({ opacity: [0, 1], x: [40, 0] }, { transition: { duration: 0.35 } })}
 		>
 			<header>
@@ -137,6 +138,7 @@
 	{#each ['Read the sender domain letter by letter.', 'Treat urgency and secrecy as red flags.', 'Go to the site yourself instead of clicking the link.'] as tip, i (tip)}
 		<p
 			class="tip"
+			data-reveal
 			{@attach inView(
 				{ opacity: 1, y: 0 },
 				{ initial: { opacity: 0, y: 20 }, transition: { delay: i * 0.1 } }
